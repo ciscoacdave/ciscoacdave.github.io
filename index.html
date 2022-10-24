@@ -2,8 +2,7 @@
 <html>
 <body>
     <form>
-        Keyword:<br>
-        <input type="text" name="keyword" onkeyup="callREST()"><br>
+      <button onclick="callREST()">Click me</button>
     </form>
     <div id="response"></div>
 
@@ -15,8 +14,9 @@
                     document.getElementById("response").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "URL", true);
-            xhttp.send();
+            xhttp.open("POST", "https://hooks.us.webexconnect.io/events/84LZXOQM0V", true);
+            var data = JSON.stringify({ "vertical": "healthcare", "sender": "18472695644"});
+            xhttp.send(data);
         }
     </script>
 </body>
